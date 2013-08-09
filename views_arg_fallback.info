@@ -1,0 +1,8 @@
+name = Views Argument Fallback
+description = Implements more flexible default views default contextual filter handlers.
+package = Views
+core = 7.x
+php = 5.2
+
+; Views Handlers
+files[] = includes/views/views_plugin_argument_default_node_referer.inc

@@ -1,0 +1,22 @@
+<?php 
+
+/**
+ * Implements hook_views_api().
+ */
+function views_arg_fallback_views_api() {
+  return array(
+    'api' => 3,
+    'path' => drupal_get_path('module', 'views_arg_fallback') . '/includes/views',
+  );
+}
+
+/*
+ * Ensure that a referer url is internal and return the path
+ */
+function _views_arg_fallback_referer_path($referer) {
+  global $base_url;
+  $path = str_replace($base_url . '/', '', $_SERVER['HTTP_REFERER']);
+  if (strcmp($path, $_SERVER['HTTP_REFERER'])) {
+    return $path;
+  }
+}
