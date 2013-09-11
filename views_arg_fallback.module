@@ -15,8 +15,9 @@ function views_arg_fallback_views_api() {
  */
 function _views_arg_fallback_referer_path($referer) {
   global $base_url;
-  $path = str_replace($base_url . '/', '', $_SERVER['HTTP_REFERER']);
-  if (strcmp($path, $_SERVER['HTTP_REFERER'])) {
+  $alias = str_replace($base_url . '/', '', $_SERVER['HTTP_REFERER']);
+  if (strcmp($alias, $_SERVER['HTTP_REFERER'])) {
+    $path = drupal_get_normal_path($alias);
     return $path;
   }
 }
